@@ -31,9 +31,9 @@ static void init_leds(void)
     gpio_config_t led_config = {
         .pin_bit_mask = pin_mask, // ayarlanacak pinler
         .mode = GPIO_MODE_OUTPUT, // pini output yapar
-        .pull_up_en = GPIO_PULLUP_DISABLE, // dahili pull up kapaLı ???
-        .pull_down_en = GPIO_PULLDOWN_DISABLE, // dahili pull down kapalı ???
-        .intr_type = GPIO_INTR_DISABLE // kesme kapalı ????
+        .pull_up_en = GPIO_PULLUP_DISABLE, // dahili pull up kapaLı
+        .pull_down_en = GPIO_PULLDOWN_DISABLE, // dahili pull down kapalı
+        .intr_type = GPIO_INTR_DISABLE // kesme kapalı 
     };
 
     ESP_ERROR_CHECK(gpio_config(&led_config));
@@ -80,7 +80,7 @@ void app_main(void)
     ESP_LOGI(TAG, "Sistem basladi");
 
     while (true) {
-        int button_state = gpio_get_level(BUTTON_PIN); // o anda butona basılıyor mu basılıyor mu 
+        int button_state = gpio_get_level(BUTTON_PIN); // o anda butona basılıyor mu basılmıyor mu POLLING
 
         if (last_button_state == 1 && button_state == 0) { // buton durumu değiştiyse
             current_led++; // bir sonraki eld
